@@ -141,6 +141,29 @@ public class HdfsTest {
     }
 
 
+    @Test
+    public void mergeFile() throws URISyntaxException, IOException {
+        FileSystem fileSystem = FileSystem.newInstance(new URI("hdfs:/taoqingyang:8082"), new Configuration());
+
+        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/big.xml"));
+
+
+        LocalFileSystem local = FileSystem.getLocal(new Configuration());
+
+        FileStatus[] fileStatuses = local.listStatus(new Path("file:///E:\\input"));
+
+        for (FileStatus localFile : fileStatuses){
+            FSDataInputStream inputStream = local.open(localFile.getPath());
+            IOUtils.copy(inputStream,fsDataOutputStream);
+            IOUtils.closeQuietly(inputStream);
+
+        }
+
+        IOUtils.closeQuietly(fsDataOutputStream);
+        local.close();
+        fileSystem.close();
+
+    }
 
 
 
