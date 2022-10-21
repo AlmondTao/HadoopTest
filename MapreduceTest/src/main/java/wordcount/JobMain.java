@@ -42,7 +42,7 @@ public class JobMain extends Configured implements Tool {
 
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        TextOutputFormat.setOutputPath(job,new Path("hdfs://192.168.2.100:8082/wordcount/output"));
+        TextOutputFormat.setOutputPath(job,new Path("hdfs://192.168.2.100:8020/wordcount/output"));
 
         boolean b = job.waitForCompletion(true);
 
