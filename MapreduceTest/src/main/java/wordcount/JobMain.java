@@ -27,7 +27,9 @@ public class JobMain extends Configured implements Tool {
 
         job.setInputFormatClass(TextInputFormat.class);
 
-        TextInputFormat.addInputPath(job,new Path("hdfs://192.168.2.100:8020/wordcount/input"));
+//        TextInputFormat.addInputPath(job,new Path("hdfs://192.168.2.100:8020/wordcount/input"));
+
+        TextInputFormat.addInputPath(job,new Path("file:///D:\\wordcount\\input\\wordcount.txt"));
 
         job.setMapperClass(WordCountMapper.class);
         job.setMapOutputKeyClass(Text.class);
@@ -42,7 +44,9 @@ public class JobMain extends Configured implements Tool {
 
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        TextOutputFormat.setOutputPath(job,new Path("hdfs://192.168.2.100:8020/wordcount/output"));
+//        TextOutputFormat.setOutputPath(job,new Path("hdfs://192.168.2.100:8020/wordcount/output"));
+
+        TextOutputFormat.setOutputPath(job,new Path("file:///D:\\wordcount\\output"));
 
         boolean b = job.waitForCompletion(true);
 
