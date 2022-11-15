@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="MapreduceTest" />
         <module name="HdfsTest" />
+        <module name="HiveTest" />
       </profile>
     </annotationProcessing>
   </component>

@@ -11,6 +11,7 @@
     <modules>
         <module>HdfsTest</module>
         <module>MapreduceTest</module>
+        <module>HiveTest</module>
     </modules>
 
     <properties>
