@@ -1,12 +1,18 @@
 package interceptor;
 
+import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.Interceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
 import java.util.List;
 
+
 public class MyInterceptor implements Interceptor {
+
+
     @Override
     public void initialize() {
 
@@ -19,7 +25,7 @@ public class MyInterceptor implements Interceptor {
         if (s != null && s.endsWith("file")){
             event.getHeaders().put("type","file");
         }else if(s != null && s.endsWith("log")) {
-            event.getHeaders().put("type","file");
+            event.getHeaders().put("type","log");
         }
         return event;
     }
@@ -35,5 +41,18 @@ public class MyInterceptor implements Interceptor {
     @Override
     public void close() {
 
+    }
+
+    public static class MyBuilder implements Interceptor.Builder{
+        Logger logger = LoggerFactory.getLogger(MyBuilder.class);
+        @Override
+        public Interceptor build() {
+            return new MyInterceptor();
+        }
+
+        @Override
+        public void configure(Context context) {
+            logger.info(context.toString());
+        }
     }
 }
