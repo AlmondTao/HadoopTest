@@ -12,6 +12,7 @@
         <module>HdfsTest</module>
         <module>MapreduceTest</module>
         <module>HiveTest</module>
+        <module>FlumeTest</module>
     </modules>
 
     <properties>
