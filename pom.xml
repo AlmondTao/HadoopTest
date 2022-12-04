@@ -13,6 +13,7 @@
         <module>MapreduceTest</module>
         <module>HiveTest</module>
         <module>FlumeTest</module>
+        <module>KafkaTest</module>
     </modules>
 
     <properties>

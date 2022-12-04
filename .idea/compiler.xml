@@ -10,6 +10,7 @@
         <module name="FlumeTest" />
         <module name="HdfsTest" />
         <module name="HiveTest" />
+        <module name="KafkaTest" />
       </profile>
     </annotationProcessing>
   </component>
