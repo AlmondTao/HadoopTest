@@ -29,4 +29,9 @@ public class MyInputFormat extends FileInputFormat<NullWritable, BytesWritable> 
     protected boolean isSplitable(JobContext context, Path filename) {
         return false;
     }
+
+    @Override
+    public List<InputSplit> getSplits(JobContext job) throws IOException {
+        return super.getSplits(job);
+    }
 }

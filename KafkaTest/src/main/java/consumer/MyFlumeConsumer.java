@@ -9,12 +9,12 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class MyConsumer {
+public class MyFlumeConsumer {
     public static void main(String[] args) {
         Properties props = new Properties();
         props.put("bootstrap.servers","node01:9092,node02:9092,node03:9092");
 
-        props.put("group.id","myConsumer");
+        props.put("group.id","flumeConsumer");
         props.put("enable.auto.commit","true");
         props.put("auto.commit.interval.ms","1000");
 
@@ -25,7 +25,7 @@ public class MyConsumer {
 
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(props);
 
-        consumer.subscribe(Arrays.asList("second"));
+        consumer.subscribe(Arrays.asList("flumeTopic"));
 
         while (true){
 //            ConsumerRecords<String, String> poll = consumer.poll(100);
