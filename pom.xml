@@ -14,6 +14,7 @@
         <module>HiveTest</module>
         <module>FlumeTest</module>
         <module>KafkaTest</module>
+        <module>HBaseTest</module>
     </modules>
 
     <properties>

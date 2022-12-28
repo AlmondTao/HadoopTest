@@ -9,6 +9,7 @@
         <module name="MapreduceTest" />
         <module name="FlumeTest" />
         <module name="HdfsTest" />
+        <module name="HBaseTest" />
         <module name="HiveTest" />
         <module name="KafkaTest" />
       </profile>
